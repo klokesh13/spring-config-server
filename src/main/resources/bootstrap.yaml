@@ -7,9 +7,7 @@ spring:
       server:
         git:
           uri: https://github.com/klokesh13/toris-config-server
-          username: klokesh13
-          password: Mummy@12
-          #searchPaths: spring-config-server/src/main/resources/
+          #searchPaths: toris-config-server/src/main/resources/
           clone-on-start: true
 #          uri: git@github.com:PeopleNet/application-configs.git
 #          ignore-local-ssh-settings: true
