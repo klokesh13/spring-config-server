@@ -9,6 +9,7 @@ spring:
           uri: https://github.com/klokesh13/toris-config-server
           #searchPaths: toris-config-server/src/main/resources/
           clone-on-start: true
+          force-pull: true
 #          uri: git@github.com:PeopleNet/application-configs.git
 #          ignore-local-ssh-settings: true
 #          strict-host-key-checking: false
