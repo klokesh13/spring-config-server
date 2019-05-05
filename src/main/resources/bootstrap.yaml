@@ -18,6 +18,4 @@ spring:
 #            -----BEGIN RSA PRIVATE KEY-----
 #            AAAAB3NzaC1yc2EAAAADAQABAAACAQDLUmkTDahGXrP2kqX3nzO/fja/02dRi07nlvk363N+WUzaUoRpRb02wVmqstnmgiIwGQVbYGheS71y1spSghAy3PCamHofC6Zi0miW9ylM6W2xmLytBVzwv4/7eIfZx1SMyF2ePyf81cdwLI0hCr7YwMnfouPxQ5dRZiWfRbel0h2209CIga8c7vT2bIJCEVFYl2Dxfj8/vraXWuc72dbZoxFBtcYz9ZGPeAkPylst7AyJIf51KaW1IlVvOoZZRhdeHcivmtM09Y92QklN6s8qm6MRdCNjO8WEIaMNafwIn9ElBS9dnCS5ySpNZn68dS2ejEGgouaPDdMNNqjcExRzj5ZTMcXeFBRYxJLOdEb9MHoWurXmKIcv4Q3QaiPqgDhEA75CigfvEMv9TSl8tw3CRmUpRzqNkS55zpO7HttzPHUgVKr3GGfP6aj49aaqS2UqJGrrOgalyb5ktDtxDzsKJj+xKOD4wdG25Pd6WRDRu5xTwi6RztnZ806HRKk640sAX3nrzDZRqLcB8ozdEviz2lcux/rOile1RSKVbHdVowwlludH92ax1yCeDXHrGyTUBoogvLtwYut0m9FL/W8F/wdVINIaj0zlc8/bU23RFoNNfZ/mTWKszGxcwV4F6p/4+fpv6TJ7po9COdPvmcQx2e1e6Jz3B+Ah+J5T6fIT4w==
 #            -----END RSA PRIVATE KEY-----
-management:
-  security:
-    enabled: false
+
