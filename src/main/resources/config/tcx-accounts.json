@@ -1,0 +1,18 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "account_name": "name",
+      "_id": "ud.tcx.customerId",
+      "account_type": "ud.tcx.accountType",
+      "account_status": "lifeState",
+      "external_reference": {
+        "netsuite_id": "ud.tcx.netsuiteId",
+        "gemalto_id": "ud.tcx.gemaltoId"
+      },
+      "kafkaKey": "kafkaKey",
+      "#customers": "ud.tcx.sourceCategory",
+      "#tcx": "ud.usedBy[]"
+    }
+  }
+]
