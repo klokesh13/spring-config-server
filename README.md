@@ -1,11 +1,5 @@
 # spring-config-server
 
-Once we start the application, use the below endpoint for checking if the config server is able to read and display the properties from remote git repository.
-
-http://localhost:8081/config-client/default
-
-# toris-config-server
-
 Spring Cloud Config provides server-side and client-side support for externalized configuration in a distributed system. With the Config Server, you have a central place to manage external properties for applications across all environments. 
 
 We can fetch the configurations from external properties either by file system or git. This config server uses git repository for storing the configurations.
