@@ -1,0 +1,40 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "firstName": "name",
+      "lastName": "surname",
+      "operation": "operation",
+      "trimbleId": "ud.userTId",
+      "customerId": "ud.cfc.customerId",
+      "applicationCustomerUserId": "ud.cfc.applicationCustomerUserId",
+      "pfmId": "ud.cfc.userPfmId",
+      "id": "ud.cfc.userId",
+      "#users": "ud.cfc.sourceCategory",
+      "#cfc": "ud.usedBy[]",
+      "electronicAddresses": {
+        "*": {
+          "type": {
+            "EMAIL_ADDRESS": {
+              "@(2,text)": "uId.emailAdrs"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "operation": "modify-default-beta",
+    "spec": {
+      "givenNames": "=concat(@(1,name),' ',@(1,surname))"
+    }
+  },
+  {
+    "operation": "cardinality",
+    "spec": {
+      "uId": {
+        "emailAdrs": "ONE"
+      }
+    }
+  }
+]
