@@ -1,0 +1,340 @@
+openapi: 3.0.1
+info:
+  title: Users Services
+  description: |
+    # Overview
+
+     The Global SKU (Grizzly) Enterprise Services team will be responsible for developing and supporting a suite of tools and services to support the entire range of Global SKU (Grizzly) hardware products.
+
+    # Basepath URL
+
+    **Stage** - ```https://api-stg.trimble.com/t/trimble.com/gsku-services/1.0/```
+
+
+    **Prod** - ```https://api.trimble.com/t/trimble.com/gsku-services/1.0/```
+
+    # Authorization
+
+    The service will be secured through API Auth Server. Thus requiring an
+    'Authorization' header in all requests. The value of the header can be picked up from Trimble APICloud which will be Bearer token. You have to send a valid
+    ```Access Token``` in the Authorization header, using the ```Bearer```
+    authentication scheme.
+
+    Format: ```Bearer <access_token>```
+  contact:
+    name: GLOBAL-SKU
+    url: https://sites.google.com/trimble.com/ttm/teams/global-sku
+    email: globalskuserviceschennai-ug@trimble.com
+  version: v0.0.1
+  x-logo:
+    altText: Trimble GSKU logo
+    url: https://tools.dev.transportation.trimble.com/static/media/Trimble_nav_banner.1e387b5f.png
+servers:
+- url: https://api-stg.trimble.com/t/trimble.com/gsku-services/1.0
+  description: Stage environment
+tags:
+- name: Users
+  description: API's related to Users
+paths:
+  /users:
+    get:
+      tags:
+      - Users
+      summary: Get All Users
+      description: Get list of accepted users and invited users
+      operationId: getAllUsersList
+      parameters:
+      - name: applicationCustomerId
+        in: query
+        description: Includes applicationCustomerId as query param
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successfully fetched the users
+          content:
+            application/json: {}
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+    put:
+      tags:
+      - Users
+      summary: Update User
+      description: To update the user
+      operationId: updateUser
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+        required: true
+      responses:
+        "200":
+          description: Successfully updated the user
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+    post:
+      tags:
+      - Users
+      summary: Create User
+      description: To create Application-Customer-User
+      operationId: createUser
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+        required: true
+      responses:
+        "200":
+          description: Successfully created the user
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+    delete:
+      tags:
+      - Users
+      summary: Delete User
+      description: To delete a user
+      operationId: deleteUser
+      parameters:
+      - name: uuid
+        in: query
+        description: Includes uuid as query param
+        required: false
+        schema:
+          type: string
+      - name: inviteId
+        in: query
+        description: Includes inviteId as query param
+        required: false
+        schema:
+          type: string
+      - name: emailAddress
+        in: query
+        description: Includes emailAddress as query param
+        required: true
+        schema:
+          type: string
+      - name: applicationCustomerId
+        in: query
+        description: Includes applicationCustomerId as query param
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Successfully deleted the user
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+  /users/user-detail:
+    get:
+      tags:
+      - Users
+      summary: Get User
+      description: Get User details
+      operationId: getUser
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successfully fetched User details
+          content:
+            application/json: {}
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+  /users/roles:
+    get:
+      tags:
+      - Users
+      summary: Get Roles
+      description: Get list of roles
+      operationId: getUserRoles
+      parameters:
+      - name: applicationCustomerId
+        in: query
+        description: Includes applicationCustomerId as query param
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successfully fetched roles
+          content:
+            application/json: {}
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+  /users/invite:
+    get:
+      tags:
+      - Users
+      summary: Get Invited Users
+      description: Get list of invited users
+      operationId: getInviteUsersList
+      parameters:
+      - name: applicationCustomerId
+        in: query
+        description: Includes applicationCustomerId as query param
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successfully fetched invite users
+          content:
+            application/json: {}
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+  /users/customers:
+    get:
+      tags:
+      - Users
+      summary: Get Application Customers
+      description: Get list of Application Customers
+      operationId: getApplicationCustomers
+      responses:
+        "200":
+          description: Successfully fetched Application Customers
+          content:
+            application/json: {}
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+  /users/accept:
+    get:
+      tags:
+      - Users
+      summary: Get Accepted Users
+      description: Get list of accepted users
+      operationId: getUsersList
+      parameters:
+      - name: applicationCustomerId
+        in: query
+        description: Includes applicationCustomerId as query param
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successfully fetched users
+          content:
+            application/json: {}
+        "404":
+          description: The resource you were trying to reach is not found
+        "403":
+          description: Accessing the resource you were trying to reach is forbidden
+        "401":
+          description: You are not authorized to view the resource
+components:
+  schemas:
+    UserRequest:
+      type: object
+      properties:
+        uuid:
+          type: string
+        emailAddresses:
+          type: array
+          items:
+            type: string
+        emailAddress:
+          type: string
+        applicationCustomerId:
+          type: string
+        userId:
+          type: string
+        roleId:
+          type: string
+        tags:
+          type: array
+          items:
+            type: integer
+            format: int64
+  securitySchemes:
+    Bearer-key:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
